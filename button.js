@@ -1,6 +1,8 @@
 // 插入按钮
 var $button=$("<button id='btn__getInfo'>获取信息</button>")
 $("body").append($button)
+var $buttonA = $("<textarea id='dynamic'></textarea>")
+$("body").append($buttonA)
 
 // 检查是否可以获取信息
 const checkShop = function () {
@@ -58,13 +60,12 @@ const getPoiPhone = function () {
   baseInfo.poi = $('#map')[0] && $('#map')[0].innerHTML.split('|')[1].split('"')[0]
   return baseInfo
 }
-
+let shopInfo = {}
 $('#btn__getInfo').on('click',function(){
-  let shopInfo = {}
   checkShop()
   shopInfo.canonical = getCanonical()
   shopInfo.shopName = getShopName()
   shopInfo.commit = getCommit()
   shopInfo.poiPhone = getPoiPhone()
-  console.warn(shopInfo)
+  console.warn(JSON.stringify(shopInfo))
 })

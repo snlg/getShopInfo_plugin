@@ -22,3 +22,6 @@
   text-decoration: none;
   opacity:1;
 }
+#dynamic {
+  opacity: 0;
+}
